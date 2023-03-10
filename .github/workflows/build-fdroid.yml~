@@ -1,0 +1,15 @@
+name: Build and Test
+
+on: [push]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build and Test
+        uses: docker/compose@v2
+        with:
+          file: docker-compose.yml
+          services: app
+          command: run tests
