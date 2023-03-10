@@ -10,15 +10,21 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: recursive
+
       - name: Cache Docker layers
         uses: actions/cache@v2
         with:
           path: |
-            ~/.cache
+            /var/lib/docker
           key: ${{ runner.os }}-docker-${{ hashFiles('**/docker-compose.yml') }}
           restore-keys: |
             ${{ runner.os }}-docker-
+
       - name: Setup build env
         run: docker-compose up -d
+
+      - name: Enable write permsissions for local.properties
+        run chmod +w local.properties
+
       - name: Run build env
         run: docker-compose run wire-android-build-server
