@@ -1,13 +1,6 @@
 #!/usr/bin/env bash
 
-if [ "$CLEAN_PROJECT_BEFORE_BUILD" = true ] ; then
-	source "$HOME/.cargo/env"
-	(cd core-crypto && cargo clean)
-    echo "Cleaning the Project"
-    ./gradlew clean
-else
-    echo "Cleaning the project will be skipped"
-fi
+
 
 #if [ "$RUN_APP_UNIT_TESTS" = true ] ; then
    ##echo "Running App Unit Tests"
@@ -36,9 +29,21 @@ if [ "$BUILD_WITH_STACKTRACE" = true ] ; then
     echo "Stacktrace option enabled"
 fi
 
-if [ "$BUILD_CLIENT" = true ] ; then
+if [ "$CUSTOM_FLAVOR" = "Fdroid"]; then
 	echo Building crypto-core
 	docker-agent/buildLibraries.sh
+fi
+
+if [ "$CLEAN_PROJECT_BEFORE_BUILD" = true ] ; then
+	source "$HOME/.cargo/env"
+	(cd core-crypto && cargo clean)
+    echo "Cleaning the Project"
+    ./gradlew clean
+else
+    echo "Cleaning the project will be skipped"
+fi
+
+if [ "$BUILD_CLIENT" = true ] ; then
     echo "Compiling the client with Flavor:${CUSTOM_FLAVOR} and BuildType:${BUILD_TYPE}"
     #./gradlew ${buildOption}assemble${FLAVOR_TYPE}${BUILD_TYPE}
     ./gradlew ${buildOption}assemble${CUSTOM_FLAVOR}

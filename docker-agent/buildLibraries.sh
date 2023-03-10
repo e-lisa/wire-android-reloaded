@@ -16,7 +16,6 @@ cd crypto-ffi
 cargo make "copy-android-resources"
 cd ../kotlin
 
-./gradlew :jvm:publishToMavenLocal
 ./gradlew :android:publishToMavenLocal
 
 
