@@ -29,7 +29,7 @@ if [ "$BUILD_WITH_STACKTRACE" = true ] ; then
     echo "Stacktrace option enabled"
 fi
 
-if [ "$CUSTOM_FLAVOR" = "Fdroid"]; then
+if [ "$CUSTOM_FLAVOR" = "Fdroid" ]; then
 	echo Building crypto-core
 	docker-agent/buildLibraries.sh
 fi
