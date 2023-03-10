@@ -1,0 +1,12 @@
+name: FDRoid build and test
+
+on: [push]
+
+jobs:
+  fdroid-build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: FDroid build and test
+        run: docker-compose up -d
+
