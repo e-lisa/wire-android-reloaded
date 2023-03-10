@@ -5,3 +5,4 @@
 [submodule "core-crypto"]
 	path = core-crypto
 	url = https://github.com/wireapp/core-crypto
+	branch = v0.6.0-rc.3
