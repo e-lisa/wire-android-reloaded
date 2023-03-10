@@ -3,12 +3,21 @@ name: FDRoid build and test
 on: [push]
 
 jobs:
+  
   fdroid-build-and-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
           submodules: recursive
+      - name: Cache Docker layers
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache
+          key: ${{ runner.os }}-docker-${{ hashFiles('**/docker-compose.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-docker-
       - name: Setup build env
         run: docker-compose up -d
       - name: Run build env
