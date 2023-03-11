@@ -13,11 +13,15 @@ jobs:
 
       - name: Setup build env
         run: docker-compose up -d
-      - name: debug
-        run: sudo ls /var/lib/docker
+
+      - name: Tag docker image
+        run: docker tag wire-android-reloaded $DOCKER_USERNAME/wire-android-reloaded
 
       - name: Login to docker hub
         run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+
+      - name: Push image to docker hub as cache
+        run: docker push $DOCKER_USERNAME/wire-android-reloaded
 
       - name: Run build env
         run: docker-compose run wire-android-build-server
