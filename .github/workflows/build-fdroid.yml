@@ -16,7 +16,7 @@ jobs:
         with:
           path: |
             /var/lib/docker
-          key: ${{ runner.os }}-docker-${{ hashFiles('**/docker-compose.yml') }}
+          key: ${{ runner.os }}-docker-${{ hashFiles('wire-android/docker-compose.yml') }}
           restore-keys: |
             ${{ runner.os }}-docker-
 
@@ -24,7 +24,7 @@ jobs:
         run: docker-compose up -d
 
       - name: Enable write permsissions for local.properties
-        run: chmod +w local.properties
+        run: chmod +w wire-android/local.properties
 
       - name: Run build env
         run: docker-compose run wire-android-build-server
