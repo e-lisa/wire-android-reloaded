@@ -4,7 +4,8 @@ services:
         build:
             context: .
             dockerfile: docker-agent/AndroidAgent
-        image: builder-agent:latest
+#        image: builder-agent:latest
+        image: eelisa/wire-android-build-server:latest
         container_name: wire-android-build-server
         environment:
             - CUSTOM_FLAVOR=Fdroid
