@@ -30,7 +30,7 @@ jobs:
         run: touch local.properties
 
       - name: Enable write permsissions for local.properties
-        run: chmod +x local.properties
+        run: chmod +w local.properties
 
       - name: Run build env
         run: docker-compose run wire-android-build-server
