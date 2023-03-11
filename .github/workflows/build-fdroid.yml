@@ -11,13 +11,6 @@ jobs:
         with:
           submodules: recursive
 
-      - name: debug
-        run: ls -a
-
-      - name: debug 2
-        run: pwd
-        
-
       - name: Cache Docker layers
         uses: actions/cache@v2
         with:
@@ -30,8 +23,11 @@ jobs:
       - name: Setup build env
         run: docker-compose up -d
 
+      - name: Create local.properties
+        run: touch local.propertie
+
       - name: Enable write permsissions for local.properties
-        run: chmod +w /home/android-agent/wire-android/local.properties
+        run: chmod +x local.properties
 
       - name: Run build env
         run: docker-compose run wire-android-build-server
