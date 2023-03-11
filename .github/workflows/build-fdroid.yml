@@ -11,7 +11,7 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Cache permissions:
+      - name: Cache permissions
         run: sudo chown -R runner:docker /var/cache/docker
 
       - name: Cache Docker layers
