@@ -24,7 +24,7 @@ jobs:
       - name: Setup build env
         run: docker-compose up -d
       - name: debug
-        run: ls /var/lib/docker
+        run: sudo ls /var/lib/docker
 
       - name: Create local.properties
         run: touch local.properties
