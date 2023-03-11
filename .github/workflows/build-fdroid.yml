@@ -12,8 +12,6 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-      - name: debug test
-        run: echo $DOCKER_USERNAME
       - uses: actions/checkout@v2
         with:
           submodules: recursive
@@ -22,13 +20,13 @@ jobs:
         run: docker-compose up -d
 
       - name: Tag docker image
-        run: docker tag wire-android-reloaded $DOCKER_USERNAME/wire-android-reloaded
+        run: docker tag wire-android-build-server $DOCKER_USERNAME/wire-android-build-server
 
       - name: Login to docker hub
         run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
       - name: Push image to docker hub as cache
-        run: docker push $DOCKER_USERNAME/wire-android-reloaded
+        run: docker push $DOCKER_USERNAME/wire-android-build-server
 
       - name: Run build env
         run: docker-compose run wire-android-build-server
