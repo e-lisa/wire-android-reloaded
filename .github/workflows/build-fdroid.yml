@@ -11,6 +11,9 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Cache permissions:
+        run: sudo chown -R runner:docker /var/cache/docker
+
       - name: Cache Docker layers
         uses: actions/cache@v2
         with:
@@ -20,7 +23,6 @@ jobs:
           key: ${{ runner.os }}-docker-${{ hashFiles('wire-android/docker-compose.yml') }}
           restore-keys: |
             ${{ runner.os }}-docker-
-        run: sudo chown -R runner:docker /var/cache/docker
 
       - name: Setup build env
         run: docker-compose up -d
