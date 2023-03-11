@@ -36,5 +36,5 @@ jobs:
         run: docker-compose run wire-android-build-server
 
       - name: Cache permissions
-        run: sudo chown -R runner:docker /var/cache/docker
+        run: sudo chown -R runner:docker /var/lib/docker
 
