@@ -30,7 +30,7 @@ services:
             #### Debug Optins
             - BUILD_WITH_STACKTRACE=true
             # For permissions isues with GHA
-        user: "1000:1000"
+        user: "${UID}:${GID}"
         volumes:
             - ".:/home/android-agent/wire-android"
         command: bash -c "cd /home/android-agent/wire-android && /home/android-agent/wire-android/docker-agent/configure-project.sh && /home/android-agent/wire-android/docker-agent/builder.sh"
