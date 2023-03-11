@@ -11,9 +11,6 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Cache permissions
-        run: sudo chown -R runner:docker /var/cache/docker
-
       - name: Cache Docker layers
         uses: actions/cache@v2
         with:
@@ -37,4 +34,7 @@ jobs:
 
       - name: Run build env
         run: docker-compose run wire-android-build-server
+
+      - name: Cache permissions
+        run: sudo chown -R runner:docker /var/cache/docker
 
