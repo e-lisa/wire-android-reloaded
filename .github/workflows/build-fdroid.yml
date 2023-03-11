@@ -2,6 +2,10 @@ name: FDRoid build and test
 
 on: [push]
 
+env:
+  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
 jobs:
   
   fdroid-build-and-test:
