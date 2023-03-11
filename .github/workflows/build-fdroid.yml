@@ -22,6 +22,9 @@ jobs:
       - name: Enable write permissions for local.properties
         run: chmod +w local.properties
 
+      - name: Create cargo lock for core-crypto
+        run: touch core-crypto/Cargo.lock
+
       - name: Enable write permissions core-crypto/Cargo.lock
         run: chmod +w core-crypto/Cargo.lock
 
