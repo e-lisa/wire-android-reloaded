@@ -24,7 +24,7 @@ jobs:
         run: docker-compose up -d
 
       - name: Enable write permsissions for local.properties
-        run chmod +w local.properties
+        run: chmod +w local.properties
 
       - name: Run build env
         run: docker-compose run wire-android-build-server
