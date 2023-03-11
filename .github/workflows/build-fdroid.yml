@@ -16,6 +16,9 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Pull image to docker hub as cache
+        run: docker pull $DOCKER_USERNAME/wire-android-build-server
+
       - name: Setup build env
         run: docker-compose up -d
 
