@@ -5,7 +5,7 @@ services:
             context: .
             dockerfile: docker-agent/AndroidAgent
         image: builder-agent:latest
-        container_name: wire-android-build-server
+        container_name: wire-android-build-server:latest
         environment:
             - CUSTOM_FLAVOR=Fdroid
             - BUILD_TYPE=Release
@@ -27,8 +27,10 @@ services:
             #- CLIENT_FOLDER=client2
             #- GRGIT_USER="your-github-api-token-or-user-name"
             #- GRGIT_PASSWORD="your-github-password-only-when-using-username" #only outcomment this if you wanna use username and password instead of a github api token
-            #### Debug Options
+            #### Debug Optins
             - BUILD_WITH_STACKTRACE=true
+            # For permissions isues with GHA
+        user: "1001:1001"
         volumes:
             - ".:/home/android-agent/wire-android"
         command: bash -c "cd /home/android-agent/wire-android && /home/android-agent/wire-android/docker-agent/configure-project.sh && /home/android-agent/wire-android/docker-agent/builder.sh"
