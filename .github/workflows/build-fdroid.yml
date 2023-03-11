@@ -16,17 +16,8 @@ jobs:
       - name: debug
         run: sudo ls /var/lib/docker
 
-      - name: Create local.properties
-        run: touch local.properties
-
-      - name: Enable write permissions for local.properties
-        run: chmod +w local.properties
-
-      - name: Create cargo lock for core-crypto
-        run: touch core-crypto/Cargo.lock
-
-      - name: Enable write permissions core-crypto/Cargo.lock
-        run: chmod +w core-crypto/Cargo.lock
+      - name: Login to docker hub
+        run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
       - name: Run build env
         run: docker-compose run wire-android-build-server
