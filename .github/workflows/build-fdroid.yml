@@ -15,13 +15,16 @@ jobs:
         uses: actions/cache@v2
         with:
           path: |
-            ~/.docker
+            /var/lib/docker
+            ~/.cache/docker
           key: ${{ runner.os }}-docker-${{ hashFiles('wire-android/docker-compose.yml') }}
           restore-keys: |
             ${{ runner.os }}-docker-
 
       - name: Setup build env
         run: docker-compose up -d
+      - name: debug
+        run: ls /var/lib/docker
 
       - name: Create local.properties
         run: touch local.properties
