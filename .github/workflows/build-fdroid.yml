@@ -29,8 +29,11 @@ jobs:
       - name: Create local.properties
         run: touch local.properties
 
-      - name: Enable write permsissions for local.properties
+      - name: Enable write permissions for local.properties
         run: chmod +w local.properties
+
+      - name: Enable write permissions core-crypto/Cargo.lock
+        run: chmod +w core-crypto/Cargo.lock
 
       - name: Run build env
         run: docker-compose run wire-android-build-server
