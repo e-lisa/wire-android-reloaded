@@ -3,7 +3,6 @@ name: FDRoid build and test
 on: [push]
 
 jobs:
-  
   fdroid-build-and-test:
     environment: main
     env:
