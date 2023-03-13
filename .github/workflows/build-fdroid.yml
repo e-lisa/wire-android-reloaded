@@ -12,7 +12,6 @@ jobs:
       RUSTUP_MAX_RETRIES: 10
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      ANDROID_TOOLCHAIN: "clang"
 
     runs-on: ubuntu-latest
     steps:
