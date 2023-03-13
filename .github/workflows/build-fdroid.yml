@@ -13,7 +13,8 @@ jobs:
       RUSTUP_MAX_RETRIES: 10
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-
+      ANDROID_TOOLCHAIN: clang
+      
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -33,10 +34,6 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
         with:
           targets: "armv7-linux-androideabi,aarch64-linux-android,x86_64-linux-android,i686-linux-android,arm-linux-androideabi"
-      - name: Install gcc
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y gcc-arm-linux-androideabi binutils-arm-linux-androideabi
       - uses: android-actions/setup-android@v2
         with:
           ndk-version: '22.1.7171670'
@@ -53,8 +50,8 @@ jobs:
           build-root-directory: kotlin
           arguments: "android:publishToMavenLocal"
 
-      - name: Pull image to docker hub as cache
-        run: docker pull $DOCKER_USERNAME/wire-android-build-server
+#      - name: Pull image to docker hub as cache
+#        run: docker pull $DOCKER_USERNAME/wire-android-build-server
 
       - name: Setup build env
         run: docker-compose up -d
