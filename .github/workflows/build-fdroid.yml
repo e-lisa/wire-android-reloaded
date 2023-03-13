@@ -12,7 +12,8 @@ jobs:
       RUSTUP_MAX_RETRIES: 10
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      ANDROID_TOOLCHAIN: "gcc"
+      ANDROID_TOOLCHAIN: "clang"
+      ANDROID_SDK_ROOT: "~/Android/Sdk"
 
     runs-on: ubuntu-latest
     steps:
