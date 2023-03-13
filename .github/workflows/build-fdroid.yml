@@ -14,7 +14,7 @@ jobs:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       ANDROID_TOOLCHAIN: clang
-      
+
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
