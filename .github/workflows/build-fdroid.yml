@@ -35,7 +35,7 @@ jobs:
       - uses: android-actions/setup-android@v2
         with:
           ndk-version: '22.1.7171670'
-     - name: Setup cargo-make
+      - name: Setup cargo-make
         uses: davidB/rust-cargo-make@v1
 
       - name: Build Android package
