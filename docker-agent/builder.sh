@@ -20,7 +20,6 @@
 #else
    #echo "ZMessaging Unit Tests will be skipped"
 #fi
-sleep 3000000000
 buildOption=''
 if [ "$BUILD_WITH_STACKTRACE" = true ] ; then
     buildOption="--stacktrace "

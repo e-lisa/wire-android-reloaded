@@ -28,6 +28,7 @@ private object Dependencies {
     const val junit5 = "de.mannodermaus.gradle.plugins:android-junit5:1.9.3.0"
     const val grgit = "org.ajoberstar.grgit:grgit-core:5.0.0-rc.3"
 	const val cryptoBoxAndroid = "org.wire.cryptobox-android:1.14"
+}
 
 plugins {
     `kotlin-dsl`
