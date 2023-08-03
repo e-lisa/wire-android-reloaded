@@ -50,6 +50,7 @@ sealed class ProductFlavors(
 
     object Beta : ProductFlavors("beta", "Wire Beta")
     object Internal : ProductFlavors("internal", "Wire Internal")
+    object FDroid : ProductFlavors("fdroid", "FDroid")
     object Production : ProductFlavors("prod", "Wire", shareduserId = "com.waz.userid")
 }
 
@@ -173,6 +174,8 @@ android {
         createFlavor(ProductFlavors.Staging)
         createFlavor(ProductFlavors.Beta)
         createFlavor(ProductFlavors.Internal)
+        createFlavor(ProductFlavors.Production)
+        createFlavor(ProductFlavors.FDroid)
         createFlavor(ProductFlavors.Production)
     }
 
