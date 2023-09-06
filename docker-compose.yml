@@ -24,4 +24,4 @@ services:
         user: "${UID}:${GID}"
         volumes:
             - ".:/home/android-agent/wire-android-reloaded"
-        command: bash -c "cd /home/android-agent/wire-android-reloaded && /home/android-agent/wire-android-reloaded/docker-agent/configure-project.sh && /home/android-agent/wire-android-re/docker-agent/builder.sh"
+        command: bash -c "cd /home/android-agent/wire-android-reloaded && /home/android-agent/wire-android-reloaded/docker-agent/configure-project.sh && /home/android-agent/wire-android-reloaded/docker-agent/builder.sh"
